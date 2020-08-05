@@ -1,7 +1,7 @@
 const mysql = require('mysql')
 require('dotenv').config()
 
-//conexion BBDD
+//Se crea la conexion a la BBDD se obtienen los valores del archivo .env
 const mysqlConnection = mysql.createConnection({
     host: process.env.HOST,
     user: process.env.USER,
@@ -10,6 +10,7 @@ const mysqlConnection = mysql.createConnection({
     ssl: true
 });
 
+//Se crea la conexion y se valida que haya sido exitosa
 mysqlConnection.connect(function (err) {
     if (err) {
         console.error("No se pudo Connectar!", err);

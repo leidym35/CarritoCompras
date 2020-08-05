@@ -4,16 +4,15 @@ const compression = require('compression')
 
 //Middlewares
 app.use(compression());
-app.set('port',process.env.PORT||4000);
 app.use(express.json());
-app.use(express.urlencoded({extended:false}))
+app.use(express.urlencoded({ extended: false }))
 
-//modulos
+//Modulos
 app.use(require('./src/routes/productos.routes'))
-app.use(require('./src/routes/carrito.routes'))  
+app.use(require('./src/routes/carrito.routes'))
 
 //Se levanta el servidor 
-
-app.listen(app.get('port'),()=>{
-    console.log("port listen ",app.get('port'))
+app.set('port', process.env.PORT || 4000);
+app.listen(app.get('port'), () => {
+    console.log("port listen ", app.get('port'))
 })
