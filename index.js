@@ -1,10 +1,11 @@
 const express = require('express');
 const app = express()
 const compression = require('compression')
-
+const cors = require('cors')
 //Middlewares
 app.use(compression());
 app.use(express.json());
+app.use(cors());
 app.use(express.urlencoded({ extended: false }))
 
 //Modulos
